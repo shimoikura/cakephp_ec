@@ -23,10 +23,9 @@
         <h1><?php echo $product->proName ?></h1>
         <p id="category"><span>#</span>
         </p>
-
       </div>
       <p>Rs <span id="subprice"><?php echo $product->proPrice ?></span></p>
-      <?php echo $this->Form->create(null,['url'=>['action'=>'addcart']]) ?>
+      <?php echo $this->Form->create(null,['url'=>['action'=>'addcart']]); ?>
       <div class="amount col-md-6">
         <?php
         echo $this->Form->label('Quantity:');
@@ -41,7 +40,6 @@
       <?php echo $this->Form->input('id',['type'=>'hidden','value'=>$product->id]) ?>
       <?php echo $this->Form->button('ADD TO CART',['type'=>'submit','name'=>'btn-addcart']); ?>
       <?php echo $this->Form->button('BUY NOW',['type'=>'submit','name'=>'btn-buynow']); ?>
-
       <?php echo $this->Form->end(); ?>
     </div>
   </div>

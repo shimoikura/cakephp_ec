@@ -57,31 +57,39 @@
       $product = $this->Products->get($id);
       $products = $this->paginate($this->Products);
 
-      if ($this->request->is("POST")) {
-        print_r($this->request->data);
-        // exit();
-        // echo $request->getMethod()
-        //sessionがなければ、ログインページへ移動　↓
-              $this->request->session();
-              $this->request->session()->read("userid");
-              if ($this->request->session()->read("userid") == null) {
-                $this->redirect(["controller"=>"users",'action'=>'login']);
-              }
-              else {
-                $this->redirect(["action"=>"addcart"]);
-              }
-      }
-      else {
-
-      }
       // echo $product;
       $this->set('product',$product);
     }
 
     public function addcart(){
-      $addpro = $this->Products->get($_POST['id']);
-      // echo $addpro;
-      $this->set('addpro',$addpro);
+      if ($this->request->is("POST")) {
+        $this->request->session();
+        $this->request->session()->read("userid");
+        if (isset($this->request->data['btn-addcart'])) {
+          //sessionがなければ、ログインページへ移動　↓
+          if ($this->request->session()->read("userid") == null) {
+            $this->redirect(["controller"=>"users",'action'=>'login']);
+          }
+          else {
+            $addpro = $this->Products->get($_POST['id']);
+            echo $addpro;
+            $this->set('addpro',$addpro);
+          }
+        }
+        elseif (isset($this->request->data['btn-buynow'])) {
+          //sessionがなければ、ログインページへ移動　↓
+          if ($this->request->session()->read("userid") == null) {
+            $this->redirect(["controller"=>"users",'action'=>'login']);
+          }
+          else {
+            $this->redirect(["controller"=>"users",'action'=>'register']);
+          }
+        }
+      }
+      else {
+
+      }
+
     }
   }
 
