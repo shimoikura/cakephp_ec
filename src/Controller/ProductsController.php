@@ -77,6 +77,9 @@
     }
 
     public function addcart(){
+      $addpro = $this->Products->get($_POST['id']);
+      echo $addpro;
+      $this->set('addpro',$addpro);
     }
   }
 
