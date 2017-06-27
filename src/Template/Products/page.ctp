@@ -39,7 +39,9 @@
         <?php echo $this->Form->input('totalprice',['id'=>'vvv','type'=>'hidden']) ?>
       </div>
       <?php echo $this->Form->input('id',['type'=>'hidden','value'=>$product->id]) ?>
-      <?php echo $this->Form->submit('submit'); ?>
+      <?php echo $this->Form->button('ADD TO CART',['type'=>'submit','name'=>'btn-addcart']); ?>
+      <?php echo $this->Form->button('BUY NOW',['type'=>'submit','name'=>'btn-buynow']); ?>
+
       <?php echo $this->Form->end(); ?>
     </div>
   </div>

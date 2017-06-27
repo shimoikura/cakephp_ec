@@ -58,7 +58,9 @@
       $products = $this->paginate($this->Products);
 
       if ($this->request->is("POST")) {
-        // echo $request->getMethod();
+        print_r($this->request->data);
+        // exit();
+        // echo $request->getMethod()
         //sessionがなければ、ログインページへ移動　↓
               $this->request->session();
               $this->request->session()->read("userid");
@@ -78,7 +80,7 @@
 
     public function addcart(){
       $addpro = $this->Products->get($_POST['id']);
-      echo $addpro;
+      // echo $addpro;
       $this->set('addpro',$addpro);
     }
   }
