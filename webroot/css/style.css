@@ -1,0 +1,99 @@
+/*----------- Header default.ctp ------------*/
+#header-top-img{
+  /*width: 100px;
+  margin: 15px auto;
+  padding: 0 5px;*/
+}
+.product{
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin: 0 5px;
+}
+#a{
+  background-color: red;
+}
+#nav-search{
+  margin-top: 10px;
+}
+/*-------------Homes-index.php---------------*/
+.pro-img-box{
+  width: 150px;
+  height: 150px;
+}
+.bxslider-img{
+  height: 400px;
+max-width: auto;
+display: inline;
+}
+
+/*-------------Login-login.ctp-------------*/
+
+.form-signin1{
+  max-width:350px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: orange;
+}
+.form-signin1 input[type="text"]{
+  width: 100%;
+}
+.form-signin1 input[type='submit']{
+  width: 100%;
+  margin-top: 5px;
+}
+/*----------------UserRegister-register.ctp------------*/
+.from-user-register{
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.form-user-register input[type='text'],
+.form-user-register input[type='email']{
+  width: 100%;
+}
+/*----------------Page.ctp---------------------------*/
+#page-container{
+  margin-top: 30px;
+}
+.left-box img{
+  max-width: 100%;
+}
+.clearfix {
+  position: relative;
+}
+.clearfix h1{
+  margin: 0;
+}
+#category{
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #333;
+  padding: 4px;
+  font-size: 12px;
+}
+.right-box p{
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  border-bottom: 1px solid 	#808080;
+}
+.subtotal p{
+  font-size: 14px;
+  margin: 0;
+  border:none;
+}
+#cart_page input[type="submit"],
+#cart_page input[type="button"]{
+  width: 100%;
+  color: white;
+  padding: 6px;
+  margin-top: 20px;
+  border: none;
+  background-color: orange;
+}
+#totalprice{
+  font-size: 30px;
+  color: red;
+}
