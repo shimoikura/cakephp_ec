@@ -31,22 +31,10 @@
             </ul>
           </nav>
 
-          <!-- <div class="row">
-            <div class="col-md-3">
-              <div class="pro-img-box">
-                <?php echo $this->Html->image('1497852726_1_mm_nature_photography.jpg',['class'=>'img-responsive']); ?>
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="pro-img-box">
-                <?php echo $this->Html->image('1497951414_Wedges._V530666625_.jpg',['class'=>'img-responsive']); ?>
-              </div>
-            </div>
-          </div> -->
           <?php
           foreach ($products as $value) {
             ?>
+          <?php echo $this->Form->create(null,['url'=>['controller'=>'products','action'=>'addcart']]); ?>
           <div class="row">
             <div class="col-md-2">
               <h4><?php echo $value->proName; ?></h4>
@@ -57,11 +45,20 @@
             echo $this->Html->link($pro_link,array('controller'=>'Products','action'=>'page',$value->id),array('escape'=>false));
             echo "</div>";
             echo "<p>Price: ".$value->proPrice."</p>";
-            // echo $this->Html->link('ADD TO CART',['controller'=>'products','action'=>'addcart'],['class'=>'btn btn-primary']);
 
-            echo "<button class='btn btn-primary' type='button'>Add to Cart</button>";
+            echo $this->Form->input('id',['type'=>'hidden','value'=>$value->id]);
+            echo $this->Form->input('itemId',['type'=>'hidden','value'=>$value->id]);
+            $this->request->session();
+            echo $this->Form->input('userId',['type'=>'hidden','value'=>$this->request->session()->read("userid")]);
+            echo $this->Form->input('itemName',['type'=>'hidden','value'=>$value->proName]);
+            echo $this->Form->input('itemPrice',['type'=>'hidden','value'=>$value->proPrice]);
+            echo $this->Form->input('itemImg',['type'=>'hidden','value'=>$value->imgName]);
+            echo $this->Form->input('quantity',['type'=>'hidden','value'=>1]);
+            echo $this->Form->input('totalPrice',['type'=>'hidden','value'=>$value->proPrice]);
 
+            echo $this->Form->button('ADD TO CART',['type'=>'submit','name'=>'btn-addcart']);
           ?>
+          <?php echo $this->Form->end(); ?>
             </div>
             <?php } ?>
           </div>

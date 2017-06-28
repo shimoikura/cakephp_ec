@@ -14,11 +14,9 @@
         <p>You order <span><?php echo $this->request->session()->read("cart-amount") ?></span> Item</p>
         <p>You Pay: Rs. <span><?php echo $this->request->session()->read("totalprice"); ?></span></p>
         <?php echo $this->Html->link('PROCED TO CHECKOUT',['controller'=>'users','action'=>'register'],['class'=>'btn btn-primary']) ?>
-        <button class='btn btn-primary' type='button'>VIEW CART</button>
+        <?php echo $this->Html->link('VIEW CART',['controller'=>'carts','action'=>'index'],['class'=>'btn btn-primary']) ?>
       </div>
     </div>
-    <?php echo $addpro->id; ?>
-
   </div>
 </div>
 

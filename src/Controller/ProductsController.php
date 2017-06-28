@@ -68,6 +68,9 @@
         $this->request->session()->write('totalprice',$this->request->data['totalPrice']);
         $this->loadModel("Carts");
         $cart = $this->Carts->newEntity();
+        // echo "<pre>";
+        // print_r($this->request->data);
+        // exit();
         if (isset($this->request->data['btn-addcart'])) {
           //sessionがなければ、ログインページへ移動　↓
           if ($this->request->session()->read("userid") == null) {
@@ -75,7 +78,7 @@
           }
           else {
             $addpro = $this->Products->get($_POST['id']);
-            echo $addpro;
+            // echo $addpro;
             $this->set('addpro',$addpro);
           }
         }
@@ -89,6 +92,12 @@
           }
         }
         $cart = $this->Carts->patchEntity($cart,$this->request->data);
+        if ($this->Carts->save($cart)) {
+          $this->Flash->success("Your Item is successfully added.");  //Flash is class
+        }
+        else {
+          $this->Flash->error("Your blog is not created.");  //Flash is class
+        }
       }
       else {
 
