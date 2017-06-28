@@ -72,10 +72,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo $this->Url->build('/login', true) ?>">LOGIN <span class="sr-only">(current)</span></a></li>
-        <li><a href="<?php echo $this->Url->build('/register', true) ?>">REGISTER <span class="sr-only">(current)</span></a></li>
-        <li><a href="<?php echo $this->Url->build('/login', true) ?>">CART <span class="sr-only">(current)</span></a></li>
-
+        <li><a href="<?php echo $this->Url->build('/login', true) ?>">
+          <center><p><span class="glyphicon glyphicon-user"></span></p></center>
+          <p>LOGIN <span class="sr-only">(current)</span></p>
+        </a></li>
+        <li><a href="<?php echo $this->Url->build('/register', true) ?>">
+          <center><p><span class="glyphicon glyphicon-info-sign"></span></p></center>
+          <p>REGISTER <span class="sr-only">(current)</span></p>
+        </a></li>
+        <li><a href="<?php echo $this->Url->build('/login', true) ?>">
+        <center>  <p><span class="glyphicon glyphicon-shopping-cart"></span></p></center>
+          <p>CART <span class="sr-only">(current)</span></p>
+        </a></li>
       </ul>
   </div>
 </nav>

@@ -66,6 +66,11 @@
         $this->request->session();
         $this->request->session()->read("userid");
         if (isset($this->request->data['btn-addcart'])) {
+          // echo "<pre>";
+          // print_r($this->request->data);
+          // exit();
+          $this->request->session()->write('cart-amount',$this->request->data['amount']);
+          $this->request->session()->write('totalprice',$this->request->data['totalprice']);
           //sessionがなければ、ログインページへ移動　↓
           if ($this->request->session()->read("userid") == null) {
             $this->redirect(["controller"=>"users",'action'=>'login']);

@@ -16,6 +16,9 @@
 #nav-search{
   margin-top: 10px;
 }
+.navbar-right p{
+  margin: 0;
+}
 /*-------------Homes-index.php---------------*/
 .pro-img-box{
   width: 150px;

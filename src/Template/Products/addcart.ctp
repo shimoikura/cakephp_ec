@@ -11,8 +11,8 @@
         <p>Rs. <span><?php echo $addpro->proPrice; ?></span></p>
       </div>
       <div class="add-pro-right col-md-7">
-        <p>You order <span></span> Item</p>
-        <p>You Pay: Rs. <span></span></p>
+        <p>You order <span><?php echo $this->request->session()->read("cart-amount") ?></span> Item</p>
+        <p>You Pay: Rs. <span><?php echo $this->request->session()->read("totalprice"); ?></span></p>
         <?php echo $this->Html->link('PROCED TO CHECKOUT',['controller'=>'users','action'=>'register'],['class'=>'btn btn-primary']) ?>
         <button class='btn btn-primary' type='button'>VIEW CART</button>
       </div>
