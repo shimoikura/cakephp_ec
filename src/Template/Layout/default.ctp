@@ -80,7 +80,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           <center><p><span class="glyphicon glyphicon-info-sign"></span></p></center>
           <p>REGISTER <span class="sr-only">(current)</span></p>
         </a></li>
-        <li><a href="<?php echo $this->Url->build('/login', true) ?>">
+        <li><a href="<?php echo $this->Url->build('/cart', true) ?>">
         <center>  <p><span class="glyphicon glyphicon-shopping-cart"></span></p></center>
           <p>CART <span class="sr-only">(current)</span></p>
         </a></li>
