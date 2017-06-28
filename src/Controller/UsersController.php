@@ -8,7 +8,7 @@
     public function beforeFilter(Event $event)
     {
       parent::beforeFilter($event);
-      $this->Auth->allow(['register','index','login']);
+      $this->Auth->allow(['register','index','login','logout']);
     }
     public function index(){
       $users = $this->paginate($this->Users);
@@ -30,6 +30,11 @@
             $this->Flash->error("You could not login.");
           }
         }
+    }
+    public function logout(){
+      $this->request->session();
+      $this->request->session()->destroy();
+      $this->redirect($this->referer());
     }
     public function register(){
 

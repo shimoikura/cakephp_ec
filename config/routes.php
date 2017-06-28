@@ -57,6 +57,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
     // $routes->connect('register/:name/:age',['controller'=>"Users","action"=>'register'],['pass'=>["name",'age']]);
     $routes->connect('/login',['controller'=>"Users","action"=>"login"]);
+    $routes->connect('/logout',['controller'=>"Users","action"=>"logout"]);
     $routes->connect('/register',['controller'=>"Users","action"=>"register"]);
     $routes->connect('/admin',['controller'=>"Products","action"=>"admin"]);
     $routes->connect('/cart',['controller'=>"Carts","action"=>"index"]);
