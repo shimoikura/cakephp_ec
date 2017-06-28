@@ -1,6 +1,6 @@
 <?php
 namespace App\Model\Table;
-use CakeORM\Table;
+use Cake\ORM\Table;
 use Cake\ORM\Query;
 use Cake\Validation\Validator;
 
@@ -14,28 +14,28 @@ use Cake\Validation\Validator;
 
     public function validationDefault(Validator $validator){
       $validator
-            ->integer("Id");
+            ->integer("Id")
             ->allowEmpty("Id","create");
       $validator
-            ->requirePresence("itemId","create");
+            ->requirePresence("itemId","create")
             ->notEmpty("itemId");
       $validator
-            ->requirePresence("userId","create");
+            ->requirePresence("userId","create")
             ->notEmpty("userId");
       $validator
-            ->requirePresence("itemName","create");
+            ->requirePresence("itemName","create")
             ->notEmpty("itemName");
       $validator
-            ->requirePresence("itemPrice","create");
+            ->requirePresence("itemPrice","create")
             ->notEmpty("itemPrice");
       $validator
-            ->requirePresence("itemImg","create");
+            ->requirePresence("itemImg","create")
             ->notEmpty("itemImg");
       $validator
-            ->requirePresence("quantity","create");
+            ->requirePresence("quantity","create")
             ->notEmpty("quantity");
       $validator
-            ->requirePresence("totalPrice","create");
+            ->requirePresence("totalPrice","create")
             ->notEmpty("totalPrice");
       return $validator;
     }

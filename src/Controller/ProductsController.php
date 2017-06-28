@@ -57,20 +57,18 @@
       $product = $this->Products->get($id);
       $products = $this->paginate($this->Products);
 
-      // echo $product;
+      echo $product;
       $this->set('product',$product);
     }
 
     public function addcart(){
       if ($this->request->is("POST")) {
         $this->request->session();
-        $this->request->session()->read("userid");
+        $this->request->session()->write('cart-amount',$this->request->data['quantity']);
+        $this->request->session()->write('totalprice',$this->request->data['totalPrice']);
+        $this->loadModel("Carts");
+        $cart = $this->Carts->newEntity();
         if (isset($this->request->data['btn-addcart'])) {
-          // echo "<pre>";
-          // print_r($this->request->data);
-          // exit();
-          $this->request->session()->write('cart-amount',$this->request->data['amount']);
-          $this->request->session()->write('totalprice',$this->request->data['totalprice']);
           //sessionがなければ、ログインページへ移動　↓
           if ($this->request->session()->read("userid") == null) {
             $this->redirect(["controller"=>"users",'action'=>'login']);
@@ -90,6 +88,7 @@
             $this->redirect(["controller"=>"users",'action'=>'register']);
           }
         }
+        $cart = $this->Carts->patchEntity($cart,$this->request->data);
       }
       else {
 
