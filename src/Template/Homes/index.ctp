@@ -57,6 +57,8 @@
             echo $this->Html->link($pro_link,array('controller'=>'Products','action'=>'page',$value->id),array('escape'=>false));
             echo "</div>";
             echo "<p>Price: ".$value->proPrice."</p>";
+            // echo $this->Html->link('ADD TO CART',['controller'=>'products','action'=>'addcart'],['class'=>'btn btn-primary']);
+
             echo "<button class='btn btn-primary' type='button'>Add to Cart</button>";
 
           ?>
