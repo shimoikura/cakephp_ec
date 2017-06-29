@@ -56,7 +56,7 @@
             echo $this->Form->input('quantity',['type'=>'hidden','value'=>1]);
             echo $this->Form->input('totalPrice',['type'=>'hidden','value'=>$value->proPrice]);
 
-            echo $this->Form->button('ADD TO CART',['type'=>'submit','name'=>'btn-addcart']);
+            echo $this->Form->button('ADD TO CART',['type'=>'submit','name'=>'btn-addcart2']);
           ?>
           <?php echo $this->Form->end(); ?>
             </div>
