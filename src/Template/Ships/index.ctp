@@ -5,49 +5,61 @@
     <div class="buy col-md-8 col-sm-8">
       <ul class="step">
         <li class="step1 active">
-          <span class="glyphicon glyphicon-shopping-cart cart-icon cart-active"></span>
+          <span class="cart-icon glyphicon glyphicon-shopping-cart cart-active" style="position:absolute;
+          top:6px;"></span>
           <p>Adress</p>
         </li>
         <li class="step1">
-          <span class="glyphicon glyphicon-shopping-cart cart-icon"></span>
+          <span class="glyphicon glyphicon-shopping-cart cart-icon" style="position:absolute;
+          top:6px;"></span>
           <p>	Deliverty & Payment	</p>
         </li>
         <li class="step1">
-          <span class="glyphicon glyphicon-shopping-cart cart-icon"></span>
+          <span class="glyphicon glyphicon-shopping-cart cart-icon" style="position:absolute;
+          top:6px;"></span>
           <p>Gift</p>
         </li>
         <li class="step1">
-          <span class="glyphicon glyphicon-shopping-cart cart-icon"></span>
+          <span class="glyphicon glyphicon-shopping-cart cart-icon" style="position:absolute;
+          top:6px;"></span>
           <p>Check</p>
         </li>
         <li class="step1">
-          <span class="glyphicon glyphicon-shopping-cart cart-icon" ></span>
+          <span class="glyphicon glyphicon-shopping-cart cart-icon"  style="position:absolute;
+          top:6px;"></span>
           <p>Complete Payment</p>
         </li>
       </ul>
       <!-- Step1 -->
       <div id="step1" class="buy-step">
-        <?php echo $this->Form->create(); ?>
+        <h3>Destination</h3>
+        <?php echo $this->Form->create($ship); ?>
+          <?php $this->request->session();?>
+          <?php echo $this->Form->input("userId",['id'=>'buy-userid','type'=>"hidden",'required'=>false,'errors'=>true,'value'=>$this->request->session()->read('userid')]) ?>
         <div class="form-group">
-          <?php echo $this->Form->input("User Name") ?>
-          <!-- <label for="name">User Name</label><br>
-          <input id="buy-name" type="text" name="name" placeholder="User Name"> -->
+          <?php echo $this->Form->input("name",['placeholder'=>"User Name","label"=>"User Name",'errors'=>true,'required'=>false]) ?>
         </div>
         <div class="form-group">
-          <label for="phone">Phone Number</label><br>
-          <input id="buy-phone" type="text" name="phone" placeholder="Phone Number">
+          <?php echo $this->Form->input("phone",['placeholder'=>"Phone Number","label"=>"Phone Number",'required'=>false,'errors'=>true,'type'=>'text']) ?>
         </div>
         <div class="form-group">
-          <label for="address">Adress</label><br>
-          <input id="buy-address"type="text" name="address" placeholder="Adress">
+          <?php echo $this->Form->input("address",['placeholder'=>"Adress","label"=>"Adress",'required'=>false,'errors'=>true]) ?>
         </div>
         <div class="form-group">
-          <label for="email">Mail Address</label><br>
-          <input id="buy-email" type="email" name="email" placeholder="Mail Address">
+          <?php echo $this->Form->input("email",['placeholder'=>"Mail Address","label"=>"Mail Address",'required'=>false,'errors'=>true,'type'=>'email']) ?>
         </div>
         <div class="dis_table">
-          <input id="btn-step1" type="button" class="btn green" value="Next">
+          <?php
+          if ($this->request->session()->read('userid') === null) {
+            echo "<button class='btn green'><a style='text-decoration:none; color:#333;' href=" .$this->Url->build('/login', true). ">
+            Next</a></button>";
+          }
+          else {
+            echo $this->Form->submit("Next",['class'=>'btn green','id'=>"btn-step1",'type'=>'submit']);
+          }
+          ?>
         </div>
+        <?php echo $this->Form->end(); ?>
       </div>
       <!-- Step2 -->
       <div id="step2" class="buy-step">

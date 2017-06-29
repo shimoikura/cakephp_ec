@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -31,7 +32,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('jquery.bxslider.css') ?>
     <?= $this->Html->script(array('jquery-3.2.1.js')) ?>
     <?= $this->Html->script(array('bootstrap.js')) ?>
-
+    <?= $this->Html->script(array('buy.js')) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -75,8 +76,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <li>
             <?php
             $this->request->session();
+
+            $arr= explode('/',$_SERVER['REQUEST_URI']);
+            $link=$arr[count($arr)-1];
               if ($this->request->session()->read('userid') === null) {
-                echo "<a href=" .$this->Url->build('/login', true). ">
+                echo "<a href=" .$this->Url->build('/login?reffer='.$link, true). ">
                 <center><p>
                 <span class='glyphicon glyphicon-user'></span>
                 </p></center>

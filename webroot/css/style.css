@@ -148,3 +148,69 @@ display: inline;
 .cart-img{
   width: 100px;
 }
+/*---------------Buy index.ctp-----------------------*/
+#buy-box{
+  margin-top: 30px;
+}
+.step li{
+  display: table-cell;
+  width: 20%;
+  padding-top: 15px;
+  text-align: center;
+}
+.cart-icon{
+    font-size: 24px;
+    color: #ccc;
+}
+.cart-active{
+  color: #128807;
+}
+.step p{
+  padding-top: 20px;
+  padding-left: 20px;
+  border-top: 2px solid #CCC;
+  top: 10px;
+}
+.form-group label{
+  display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group  input[type="text"],input[type="email"]{
+  width: 100%;
+  height: auto;
+  padding: 6px 10px;
+  border-radius: 0.5em;
+  border: 0.7px solid #bfbfbf;
+}
+.form-group input[type="text"]:focus,input[type="email"]:focus {
+  border:solid 1px #428bca; /*  blue */
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #428bca;
+  outline: 0 none;
+}
+/*step2*/
+#step2{
+  display: none;
+}
+#step2 ul{
+  margin-bottom: 30px;
+}
+#step2 li{
+  display: inline-block;
+  margin-right: 10px;
+}
+.form-group input[type="radio"]{
+  margin-right: 5px;
+}
+/*step3*/
+#step3{
+  display: none;
+}
+#step3 li{
+  display: inline-block;
+  margin-right: 10px;
+}
+.form-group input[type="radio"]{
+  margin-right: 5px;
+}

@@ -26,7 +26,7 @@ class ShipsTable extends Table{
           ->notEmpty("name");
     $validator
           ->requirePresence("phone","create")
-          ->notEmpty("phone");
+          ->notEmpty("phone")
           ->lengthBetween("phone",[10,10],"please enter only 10 digit");
     $validator
           ->requirePresence("address","create")

@@ -2,6 +2,8 @@
   namespace App\Controller;
   use App\Controller\Appcontroller;
   use Cake\Event\Event;
+  use Cake\View\Helper\HtmlHepler;
+
 
   class UsersController extends AppController{
 
@@ -16,6 +18,9 @@
     }
     public function login(){
         if ($this->request->is("POST")) {
+          $target= $this->request->data['targetPage'];
+          $targetArray = ['carts','ships','register'];
+
           $user = $this->Auth->identify();
           if ($user) {
             $this->Auth->setUser($user);
@@ -24,11 +29,22 @@
             $this->request->session()->write("userid",$this->Users->id);
 
             $this->Flash->success("You could login successfully.");
-            $this->redirect(['controller'=>'products','action'=>'admin']);
+            // $this->redirect(['controller'=>'products','action'=>'admin']);
+            if(in_array($target,$targetArray))
+            {
+              $this->redirect('/'.$target);
+            }
+            else{
+            $this->redirect('/');
+            }
           }
           else {
-            $this->Flash->error("You could not login.");
+            $this->Flash->error("You have not logined.");
           }
+        }
+        else {
+          // echo "string";
+          // $url = $this->referer();
         }
     }
     public function logout(){
