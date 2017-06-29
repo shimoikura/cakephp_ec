@@ -92,7 +92,7 @@
         elseif (isset($this->request->data['btn-buynow'])) {
           //sessionがなければ、ログインページへ移動　↓
           if ($this->request->session()->read("userid") == null) {
-            $this->redirect(["controller"=>"users",'action'=>'login']);
+            $this->redirect('/buy');
           }
           else {
             $this->redirect(["controller"=>"users",'action'=>'register']);

@@ -13,7 +13,7 @@
       <div class="add-pro-right col-md-7">
         <p>You order <span><?php echo $this->request->session()->read("cart-amount") ?></span> Item</p>
         <p>You Pay: Rs. <span><?php echo $this->request->session()->read("totalprice"); ?></span></p>
-        <?php echo $this->Html->link('PROCED TO CHECKOUT',['controller'=>'users','action'=>'register'],['class'=>'btn btn-primary']) ?>
+        <button type="button" class='btn btn-primary'><a href="<?php echo $this->Url->build('/buy', true) ?>" style="text-decoration:none; color:#fff">PROCED TO CHECKOUT</a></button>
         <?php echo $this->Html->link('VIEW CART',['controller'=>'carts','action'=>'index'],['class'=>'btn btn-primary']) ?>
       </div>
     </div>
