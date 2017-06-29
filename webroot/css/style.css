@@ -129,3 +129,22 @@ display: inline;
   width: 80px;
   height: 50px;
 }
+/*----------------Cart index.ctp----------------*/
+.cart-title-box{
+  margin-bottom: 30px;
+}
+.cart-table{
+  width: 100%;
+}
+.cart-table th{
+  height: 40px;
+  background-color: #efefef;
+  text-align: center;
+}
+.cart-table td{
+  text-align: center;
+  padding: 10px;
+}
+.cart-img{
+  width: 100px;
+}
