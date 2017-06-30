@@ -10,7 +10,7 @@
     public function beforeFilter(Event $event)
     {
       parent::beforeFilter($event);
-      $this->Auth->allow(['register','index','login','logout','dushboard']);
+      $this->Auth->allow(['register','index','login','logout','dushboard','view']);
     }
     public function index(){
       $users = $this->paginate($this->Users);
@@ -100,6 +100,13 @@
           }
       }
       $this->set('dushboard',$user);
+    }
+
+    public function view($id = null){
+      $user = $this->Users->get($id,["contain"=>[]]);
+      $user = $this->Users->patchEntity($user,$this->request->getData());
+      echo $user;
+      $this->set('view',$user);
     }
   }
 

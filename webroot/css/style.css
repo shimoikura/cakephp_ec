@@ -214,3 +214,7 @@ display: inline;
 .form-group input[type="radio"]{
   margin-right: 5px;
 }
+/*------------------Users---------------------*/
+.users-box table{
+  text-align: center;
+}
