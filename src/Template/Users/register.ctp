@@ -26,6 +26,19 @@
         <th>Country</th>
         <td><?php echo $this->Form->input('country',array('placeholder'=>'ex.India','required'=>false,'errors'=>true,'label' => false,'type'=>"text")) ?></td>
       </tr>
+      <tr>
+        <th>Date of Birth</th>
+        <?php
+        $years = range(1900,2017);
+        $months = range(1,12);
+        $days = range(1,31);
+         ?>
+        <td>
+          <?php echo $this->Form->select('year',$years) ?>
+          <?php echo $this->Form->select('month',$months) ?>
+          <?php echo $this->Form->select('day',$days) ?>
+        </td>
+      </tr>
     </table>
     <!-- <?php echo $this->Form->input('Confirm password',array('placeholder'=>'Confirm password','required'=>false,'errors'=>true,'label' => false)) ?> -->
     <!-- <?php echo $this->form->dateTime('registered', ['year' => ['class' => 'year-classname',],'month' => ['class' => 'month-class','data-type' => 'month'],'hour'=>false,'minute'=>false,'meridian'=>false]) ?> -->
