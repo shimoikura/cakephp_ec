@@ -10,7 +10,7 @@
     public function beforeFilter(Event $event)
     {
       parent::beforeFilter($event);
-      $this->Auth->allow(['register','index','login','logout']);
+      $this->Auth->allow(['register','index','login','logout','dushboard']);
     }
     public function index(){
       $users = $this->paginate($this->Users);
@@ -70,6 +70,30 @@
         echo "data not came";
       }
       $this->set('yoshiki',$user);
+    }
+
+    public function dushboard(){
+      $this->request->session();
+      if ($this->request->session()->read('userid') === null) {
+        return $this->redirect(array("action"=>"login"));
+      }
+      else {
+        $user = $this->Users->get($this->request->session()->read('userid'));
+        if ($this->request->is(["post","put"])) {
+          $user = $this->Users->patchEntity($user,$this->request->getData());
+          echo $this->Users->get($this->request->session()->read('userid'));
+          if ($this->Users->save($user)) {
+            $this->Flash->success("Your user information is successfully updated.");
+            return $this->redirect(['controller'=>'homes',"action"=>"index"]);
+          }
+          else {
+            $this->Flash->error("Your user information is not updated.");
+          }
+        }
+        else {
+          }
+      }
+      $this->set('dushboard',$user);
     }
   }
 
