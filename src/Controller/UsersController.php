@@ -10,7 +10,7 @@
     public function beforeFilter(Event $event)
     {
       parent::beforeFilter($event);
-      $this->Auth->allow(['register','index','login','logout','dushboard','view']);
+      $this->Auth->allow(['register','index','login','logout','dushboard','view','edit']);
     }
     public function index(){
       $users = $this->paginate($this->Users);
@@ -105,8 +105,25 @@
     public function view($id = null){
       $user = $this->Users->get($id,["contain"=>[]]);
       $user = $this->Users->patchEntity($user,$this->request->getData());
-      echo $user;
+      // echo $user;
       $this->set('view',$user);
+    }
+
+    public function edit($id = null){
+      $user = $this->Users->get($id,["contain"=>[]]);
+      if ($this->request->is(["post","put"])) {
+        $user = $this->Users->patchEntity($user,$this->request->getData());
+        if ($this->Users->save($user)) {
+          $this->Flash->success("The user information is successfully updated.");
+          return $this->redirect(["action"=>"index"]);
+        }
+        else {
+          $this->Flash->error("The user information is not updated.");
+        }
+      }
+      else {
+      }
+      $this->set('edit',$user);
     }
   }
 

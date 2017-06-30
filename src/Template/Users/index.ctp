@@ -28,7 +28,9 @@
           <td><?php echo $value->year ?></td>
           <td><?php echo $value->month ?></td>
           <td><?php echo $value->day ?></td>
-          <td><?php echo $this->Html->link('View',array('controller'=>'Users','action'=>'view',$value->id)); ?></td>
+          <td><?php echo $this->Html->link('View ',array('controller'=>'Users','action'=>'view',$value->id)); ?>
+            <?php echo $this->Html->link('Edit',array('controller'=>'Users','action'=>'edit',$value->id)); ?>
+          </td>
         </tr>
       <?php } ?>
     </table>

@@ -41,7 +41,7 @@
         </td>
       </tr>
     </table>
-    <?php echo $this->Form->input('role',['type'=>'hidden','value'=>'admin']); ?>
+    <?php echo $this->Form->input('role',['type'=>'hidden','value'=>'customer']); ?>
     <!-- <?php echo $this->Form->input('Confirm password',array('placeholder'=>'Confirm password','required'=>false,'errors'=>true,'label' => false)) ?> -->
     <!-- <?php echo $this->form->dateTime('registered', ['year' => ['class' => 'year-classname',],'month' => ['class' => 'month-class','data-type' => 'month'],'hour'=>false,'minute'=>false,'meridian'=>false]) ?> -->
 
