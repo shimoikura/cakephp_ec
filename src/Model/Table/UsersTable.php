@@ -39,15 +39,19 @@ use Cake\ORM\RulesChecker;
       $validator
             ->requirePresence("country","create")
             ->notEmpty("country");
-      // $validator
-      //       ->requirePresence("year","create")
-      //       ->notEmpty("year");
-      // $validator
-      //       ->requirePresence("month","create")
-      //       ->notEmpty("month");
-      // $validator
-      //       ->requirePresence("day","create")
-      //       ->notEmpty("day");
+      $validator
+            ->requirePresence("year","create")
+            ->notEmpty("year");
+      $validator
+            ->requirePresence("month","create")
+            ->notEmpty("month");
+      $validator
+            ->requirePresence("day","create")
+            ->notEmpty("day");
+      $validator
+            ->requirePresence("role","create")
+            ->notEmpty("role");
+
         return $validator;
     }
 

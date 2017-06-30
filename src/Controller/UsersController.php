@@ -56,11 +56,12 @@
       $this->redirect($this->referer());
     }
     public function register(){
-
       $user = $this->Users->newEntity();//first time
       if ($this->request->is("POST")) {
         $user = $this->Users->patchEntity($user,$this->request->getData());
+        // echo "<pre>";
         // print_r($user);
+        // exit();
         if ($this->Users->save($user)) { //save() -> insert
           $this->Flash->success("Your registration is successfully created.");  //Flash is class
           return $this->redirect(array("action"=>"login")); //if function is same class,don't need Controller name.

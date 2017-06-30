@@ -8,7 +8,7 @@
       </tr>
       <tr>
         <th>Email</th>
-        <td><?php echo $this->Form->input('email',array('placeholder'=>'email','required'=>false,'errors'=>true,'label' => false,'type'=>"email")) ?></td>
+        <td><?php echo $this->Form->input('email',array('placeholder'=>'email','required'=>false,'errors'=>true,'label' => false,'type'=>"text")) ?></td>
       </tr>
       <tr>
         <th>Password</th>
@@ -29,17 +29,19 @@
       <tr>
         <th>Date of Birth</th>
         <?php
-        $years = range(1900,2017);
+        $y1 = 2017;
+        $years = range($y1,1900);
         $months = range(1,12);
         $days = range(1,31);
          ?>
         <td>
-          <?php echo $this->Form->select('year',$years) ?>
-          <?php echo $this->Form->select('month',$months) ?>
-          <?php echo $this->Form->select('day',$days) ?>
+          <?php echo $this->Form->select('year',$years,['default'=>$y1]) ?>
+          <?php echo $this->Form->select('month',$months,['default'=>'0']) ?>
+          <?php echo $this->Form->select('day',$days,['default'=>'0']) ?>
         </td>
       </tr>
     </table>
+    <?php echo $this->Form->input('role',['type'=>'hidden','value'=>'0']); ?>
     <!-- <?php echo $this->Form->input('Confirm password',array('placeholder'=>'Confirm password','required'=>false,'errors'=>true,'label' => false)) ?> -->
     <!-- <?php echo $this->form->dateTime('registered', ['year' => ['class' => 'year-classname',],'month' => ['class' => 'month-class','data-type' => 'month'],'hour'=>false,'minute'=>false,'meridian'=>false]) ?> -->
 
