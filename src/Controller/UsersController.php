@@ -54,8 +54,13 @@
     }
     public function logout(){
       $this->request->session();
+      if ($this->request->session()->read('userrole') === "admin") {
+        $this->redirect('/');
+      }
+      else {
+        $this->redirect($this->referer());        
+      }
       $this->request->session()->destroy();
-      $this->redirect($this->referer());
     }
     public function register(){
       $user = $this->Users->newEntity();//first time
