@@ -64,6 +64,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/buy',['controller'=>"Ships","action"=>"index"]);
     $routes->connect('/dushboard',['controller'=>"Users","action"=>"dushboard"]);
     $routes->connect('/users',['controller'=>"Users","action"=>"index"]);
+    $routes->connect('/product',['controller'=>'Products',"action"=>"admin"]);
 
 
 

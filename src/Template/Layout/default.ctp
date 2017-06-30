@@ -83,6 +83,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
               <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Hi! Admin! <span class='caret'></span></a>
               <ul class='dropdown-menu' role='menu'>
                 <li><a href=" .$this->Url->build('/users', true). ">Users</a></li>
+                <li><a href=" .$this->Url->build('/product', true). ">Register product</a></li>
                 <li><a href=" .$this->Url->build('/logout', true). ">Logout</a></li>
               </ul>
               </li>";
