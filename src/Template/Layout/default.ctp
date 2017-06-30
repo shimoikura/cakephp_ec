@@ -87,6 +87,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <li><a href=" .$this->Url->build('/logout', true). ">Logout</a></li>
               </ul>
               </li>";
+              echo "<li><a href=" .$this->Url->build('/logout', true). ">
+              <center><p>
+              <span class='glyphicon glyphicon-log-out'></span>
+              </p></center>
+              <p>LOGOUT <span class='sr-only'>(current)</span></p>
+         </a></li>";
             }
               elseif ($this->request->session()->read('userid') === null) {
                 echo "<li><a href=" .$this->Url->build('/login?reffer='.$link, true). ">
