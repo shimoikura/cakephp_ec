@@ -25,11 +25,13 @@
           if ($user) {
             $this->Auth->setUser($user);
             $this->Users->id = $this->Auth->user("id"); //ユニークなidをセーブする
-            $this->Users->name = $this->Auth->user("name"); //ユニークなidをセーブする
+            $this->Users->name = $this->Auth->user("name");
+            $this->Users->role = $this->Auth->user("role");
 
             $this->request->session();
             $this->request->session()->write("userid",$this->Users->id);
             $this->request->session()->write("username",$this->Users->name);
+            $this->request->session()->write("userrole",$this->Users->role);
 
             $this->Flash->success("You could login successfully.");
             // $this->redirect(['controller'=>'products','action'=>'admin']);

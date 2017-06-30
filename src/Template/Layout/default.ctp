@@ -78,7 +78,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
             $arr= explode('/',$_SERVER['REQUEST_URI']);
             $link=$arr[count($arr)-1];
-              if ($this->request->session()->read('userid') === null) {
+            if ($this->request->session()->read('userrole') === "admin") {
+              echo "<li class='dropdown' role='menu'>
+              <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Hi! Admin! <span class='caret'></span></a>
+              <ul class='dropdown-menu' role='menu'>
+                <li><a href=" .$this->Url->build('/users', true). ">Users</a></li>
+                <li><a href=" .$this->Url->build('/logout', true). ">Logout</a></li>
+              </ul>
+              </li>";
+            }
+              elseif ($this->request->session()->read('userid') === null) {
                 echo "<li><a href=" .$this->Url->build('/login?reffer='.$link, true). ">
                 <center><p>
                 <span class='glyphicon glyphicon-user'></span>
