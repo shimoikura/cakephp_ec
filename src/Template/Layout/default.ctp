@@ -73,28 +73,35 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       <ul class="nav navbar-nav navbar-right">
-        <li>
             <?php
             $this->request->session();
 
             $arr= explode('/',$_SERVER['REQUEST_URI']);
             $link=$arr[count($arr)-1];
               if ($this->request->session()->read('userid') === null) {
-                echo "<a href=" .$this->Url->build('/login?reffer='.$link, true). ">
+                echo "<li><a href=" .$this->Url->build('/login?reffer='.$link, true). ">
                 <center><p>
                 <span class='glyphicon glyphicon-user'></span>
                 </p></center>
-                <p>LOGIN ";
+                <p>LOGIN <span class='sr-only'>(current)</span></p>
+                </a></li>";
               }
               else {
-                echo "<a href=" .$this->Url->build('/logout', true). ">
+                echo "<li class='dropdown' role='menu'>
+                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Hi!".$this->request->session()->read('username')." <span class='caret'></span></a>
+                <ul class='dropdown-menu' role='menu'>
+                  <li><a href=" .$this->Url->build('/dushboard', true). ">Dashboard</a></li>
+                  <li><a href=" .$this->Url->build('/logout', true). ">Logout</a></li>
+                </ul>
+                </li>";
+                echo "<li><a href=" .$this->Url->build('/logout', true). ">
                 <center><p>
                 <span class='glyphicon glyphicon-log-out'></span>
                 </p></center>
-                <p>LOGOUT ";
+                <p>LOGOUT <span class='sr-only'>(current)</span></p>
+           </a></li>";
               }
-             ?><span class="sr-only">(current)</span></p>
-        </a></li>
+             ?>
         <li><a href="<?php echo $this->Url->build('/register', true) ?>">
           <center><p><span class="glyphicon glyphicon-info-sign"></span></p></center>
           <p>REGISTER <span class="sr-only">(current)</span></p>
