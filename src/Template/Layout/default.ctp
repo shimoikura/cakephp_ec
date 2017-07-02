@@ -42,7 +42,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('jquery.bxslider.css') ?>
     <?= $this->Html->script(array('jquery.bxslider.min.js')) ?>
 
-
+    <style>
+    .navbar-right li a{
+      padding: 5px 10px;
+    }
+    </style>
 </head>
 <body>
   <nav class="navbar navbar-default">
