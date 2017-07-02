@@ -13,10 +13,11 @@ class ShipsController extends AppController{
   }
   public function index(){
     $ship = $this->Ships->newEntity();
-  //  $this->request->session();
-   //
-  //  echo $this->request->session()->read('userid');
-
+    $this->request->session();
+    $this->request->session()->read("userid");
+    if ($this->request->session()->read("userid") == null) {
+      $this->redirect(["controller"=>"users",'action'=>'login']);
+    }
     if ($this->request->is('POST')) {
       $ship = $this->Ships->patchEntity($ship,$this->request->getData());
     }
