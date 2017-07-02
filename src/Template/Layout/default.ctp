@@ -108,7 +108,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
               }
               else {
                 echo "<li class='dropdown' role='menu'>
-                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Hi!".$this->request->session()->read('username')." <span class='caret'></span></a>
+                <a href='#' style='margin-top:10px;' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Hi!".$this->request->session()->read('username')." <span class='caret'></span></a>
                 <ul class='dropdown-menu' role='menu'>
                   <li><a href=" .$this->Url->build('/dushboard', true). ">Dashboard</a></li>
                   <li><a href=" .$this->Url->build('/logout', true). ">Logout</a></li>
