@@ -31,5 +31,6 @@
   </table>
     <?php foreach ($carts as $value) { ?>
   <?php } ?>
+  <button type="button" class='btn btn-primary' style="float:right;"><a href="<?php echo $this->Url->build('/buy', true) ?>" style="text-decoration:none; color:#fff;">PROCED TO CHECKOUT</a></button>
 
 </div>
