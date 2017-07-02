@@ -176,6 +176,8 @@ display: inline;
     max-width: 100%;
     margin-bottom: 5px;
     font-weight: bold;
+    margin-right: 10px;
+    margin-top: 5px;
 }
 .form-group  input[type="text"],input[type="email"]{
   width: 100%;
@@ -191,7 +193,7 @@ display: inline;
 }
 /*step2*/
 #step2{
-  display: none;
+  /*display: none;*/
 }
 #step2 ul{
   margin-bottom: 30px;
@@ -205,7 +207,7 @@ display: inline;
 }
 /*step3*/
 #step3{
-  display: none;
+  /*display: none;*/
 }
 #step3 li{
   display: inline-block;
