@@ -20,9 +20,6 @@ use Cake\Validation\Validator;
             ->requirePresence("itemId","create")
             ->notEmpty("itemId");
       $validator
-            ->requirePresence("userId","create")
-            ->notEmpty("userId");
-      $validator
             ->requirePresence("itemName","create")
             ->notEmpty("itemName");
       $validator

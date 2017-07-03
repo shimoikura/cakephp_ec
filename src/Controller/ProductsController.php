@@ -68,19 +68,15 @@
         $this->request->session()->write('totalprice',$this->request->data['totalPrice']);
         $this->loadModel("Carts");
         $cart = $this->Carts->newEntity();
-        // echo "<pre>";
-        // print_r($this->request->data);
-        // exit();
         if (isset($this->request->data['btn-addcart'])) {
-          $addpro = $this->Products->get($_POST['id']);
-          // echo $addpro;
+          $addpro = $this->Products->get($_POST['Id']);
           $this->set('addpro',$addpro);
-          $cart = $this->Carts->patchEntity($cart,$this->request->data);
+          $cart = $this->Carts->patchEntity($cart,$this->request->getData());
           if ($this->Carts->save($cart)) {
             $this->Flash->success("Your Item is successfully added.");  //Flash is class
           }
           else {
-            $this->Flash->error("Your blog is not created.");  //Flash is class
+            $this->Flash->error("Your Item is not added.");  //Flash is class
           }
         }
         elseif (isset($this->request->data['btn-buynow'])) {

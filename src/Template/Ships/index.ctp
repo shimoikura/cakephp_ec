@@ -4,7 +4,7 @@
     <div class="buy col-md-4 col-sm-4">
       <!-- Step1 -->
       <div id="step1" class="buy-step">
-        <?php echo $this->Form->create($ship); ?>
+        <?php echo $this->Form->create(null,['url'=>['controller'=>'Ships','action'=>'review']]); ?>
           <?php $this->request->session();?>
           <?php echo $this->Form->input("userId",['id'=>'buy-userid','type'=>"hidden",'required'=>false,'errors'=>true,'value'=>$this->request->session()->read('userid')]) ?>
         <div class="form-group">

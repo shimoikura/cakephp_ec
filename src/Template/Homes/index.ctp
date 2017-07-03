@@ -46,10 +46,9 @@
             echo "</div>";
             echo "<p>Price: ".$value->proPrice."</p>";
 
-            echo $this->Form->input('id',['type'=>'hidden','value'=>$value->id]);
+            echo $this->Form->input('Id',['type'=>'hidden','value'=>$value->id]);
             echo $this->Form->input('itemId',['type'=>'hidden','value'=>$value->id]);
             $this->request->session();
-            echo $this->Form->input('userId',['type'=>'hidden','value'=>$this->request->session()->read("userid")]);
             echo $this->Form->input('itemName',['type'=>'hidden','value'=>$value->proName]);
             echo $this->Form->input('itemPrice',['type'=>'hidden','value'=>$value->proPrice]);
             echo $this->Form->input('itemImg',['type'=>'hidden','value'=>$value->imgName]);

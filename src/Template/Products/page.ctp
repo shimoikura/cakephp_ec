@@ -38,10 +38,9 @@
         <?php echo $this->Form->input('totalPrice',['id'=>'vvv','type'=>'hidden']) ?>
       </div>
       <?php
-      echo $this->Form->input('id',['type'=>'hidden','value'=>$product->id]);
+      echo $this->Form->input('Id',['type'=>'hidden','value'=>$product->id]);
       echo $this->Form->input('itemId',['type'=>'hidden','value'=>$product->id]);
       $this->request->session();
-      echo $this->Form->input('userId',['type'=>'hidden','value'=>$this->request->session()->read("userid")]);
       echo $this->Form->input('itemName',['type'=>'hidden','value'=>$product->proName]);
       echo $this->Form->input('itemPrice',['type'=>'hidden','value'=>$product->proPrice]);
       echo $this->Form->input('itemImg',['type'=>'hidden','value'=>$product->imgName]);

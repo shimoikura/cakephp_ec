@@ -58,7 +58,7 @@
         $this->redirect('/');
       }
       else {
-        $this->redirect($this->referer());        
+        $this->redirect($this->referer());
       }
       $this->request->session()->destroy();
     }
