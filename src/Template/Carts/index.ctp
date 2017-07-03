@@ -12,13 +12,13 @@
       <th>Subtotal</th>
     </tr>
     <?php foreach ($carts as $value) { ?>
-      <tr>
+      <tr id="<?php echo $value->Id ?>-tr" class="dd">
         <td rowspan="2"><?php echo $this->Html->image($value->itemImg,['class'=>'cart-img']) ?></td>
         <td><?php echo $value->itemName ?></td>
-        <td>Rs. <?php echo $value->itemPrice ?></td>
+        <td>Rs. <span class="cart-item-price"><?php echo $value->itemPrice ?></span></td>
         <?php $amounts = range(0, 5); ?>
-        <td><?php echo $this->Form->select('quantity',$amounts,array('id'=>'sub-num',"required"=>false, "errors"=>true,"label"=>false,"default"=>$value->quantity)); ?></td>
-        <td>Rs. <?php echo $value->totalPrice ?></td>
+        <td><?php echo $this->Form->select('quantity',$amounts,array('id'=>"$value->Id-item-num",'class'=>'cart_subnum',"required"=>false, "errors"=>true,"label"=>false,"default"=>$value->quantity)); ?></td>
+        <td>Rs. <span class="cart-subprice"><?php echo $value->totalPrice ?></span></td>
       </tr>
       <tr>
         <td><?php echo $this->Html->link('✖ REMOVE',array('controller'=>'Carts','action'=>'delete',$value->Id)); ?>
@@ -34,3 +34,15 @@
   <button type="button" class='btn btn-primary' style="float:right;"><a href="<?php echo $this->Url->build('/buy', true) ?>" style="text-decoration:none; color:#fff;">PROCED TO CHECKOUT</a></button>
 
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".cart_subnum").change(function(){
+      var tr = $(this).closest("tr").attr("id");//クリックされたtdの親（tr）のid取得
+      var num = $('#' + this.id).val();
+      var sub_total1 = $('#' + tr).children().eq(2).children().closest("span").text();
+      var sub_total2 = num * sub_total1;
+      $('#' + tr).children().eq(4).children().closest("span").text(sub_total2);
+    })
+  });
+</script>
