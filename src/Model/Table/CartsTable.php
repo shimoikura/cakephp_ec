@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
       $this->setTable("carts");
       $this->setDisplayField("Id");
       $this->setPrimaryKey("Id");
+      $this->setPrimaryKey("itemId");
     }
 
     public function validationDefault(Validator $validator){
