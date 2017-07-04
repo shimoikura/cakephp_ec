@@ -13,6 +13,11 @@ class CartsController extends AppController
 
   public function index(){
     $carts = $this->paginate($this->Carts);
+    if(count($carts)==null)
+    {
+      $this->redirect('/');
+      $this->Flash->error("Your shopping cart is empty");
+    }
     $this->set("carts",$carts);
   }
 
