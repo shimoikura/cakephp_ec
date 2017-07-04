@@ -85,10 +85,9 @@
             $this->redirect('/buy');
           }
           else {
-            $this->redirect(["controller"=>"users",'action'=>'register']);
+            $this->redirect(["controller"=>"Ships",'action'=>'index']);
             $cart = $this->Carts->patchEntity($cart,$this->request->data);
             if ($this->Carts->save($cart)) {
-              $this->Flash->success("Your Item is successfully added.");  //Flash is class
             }
             else {
               $this->Flash->error("Your blog is not created.");  //Flash is class

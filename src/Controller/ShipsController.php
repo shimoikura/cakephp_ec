@@ -15,7 +15,7 @@ class ShipsController extends AppController{
     $this->request->session();
     $this->request->session()->read("userid");
     if ($this->request->session()->read("userid") == null) {
-      $this->redirect(["controller"=>"users",'action'=>'login']);
+      $this->redirect("/login");
     }
 
   }
