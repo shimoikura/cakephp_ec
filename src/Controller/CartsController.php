@@ -8,7 +8,7 @@ class CartsController extends AppController
   public function beforeFilter(Event $event)
   {
     parent::beforeFilter($event);
-    $this->Auth->allow(['index','delete']);
+    $this->Auth->allow(['index','delete','update']);
   }
 
   public function index(){
@@ -26,6 +26,23 @@ class CartsController extends AppController
       $this->Flash->error("Item is not found.");
     }
     return $this->redirect(["action"=>"index"]);
+  }
+
+  public function update()
+  {
+    $this->autoRender = false; //.ctp file が必要ないとき
+    echo '<pre>';
+    print_r($_POST);
+    $id = $this->request->data['Id'];
+    for ($i=0; $i <count($id) ; $i++) {
+      $idnumber = $this->request->data['Id'][$i];
+      $query = $this->Carts->query();
+      $query->update()
+        ->set(['quantity' => $this->request->data['quantity'][$i],
+                'totalPrice' => $this->request->data['totalPrice'][$i]])
+        ->where(['Id' => $idnumber])
+        ->execute();
+    }
   }
 }
 
