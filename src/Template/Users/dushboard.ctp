@@ -1,28 +1,36 @@
-<?php
-  echo $this->Form->create($dushboard);
-?>
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <?php
-        echo $this->Form->input('name');
-        echo $this->Form->input('email',['type'=>'text']);
-        echo $this->Form->input('phone');
-        echo $this->Form->input('city');
-        echo $this->Form->input('country');
-        $years = range(1900,2017);
-        $months = range(1,12);
-        $days = range(1,31);
-        echo $this->Form->select('year',$years,array('default'=>$dushboard->year));
-        echo $this->Form->select('month',$months,array('default'=>$dushboard->month));
-        echo $this->Form->select('day',$days,array('default'=>$dushboard->day));
-
-        echo $this->Form->button('submit');
-      ?>
-    </div>
-
-    <div class="col-md-4">
-    </div>
+    <h2>Cutomer Profile</h2>
+    <table style="width:80%;">
+      <tr>
+        <th style="font-size:18px">Name</th>
+        <th><?php echo $dushboard->name; ?></th>
+      </tr>
+      <tr>
+        <td>Role</td>
+        <td><?php echo $dushboard->role ?></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><?php echo $dushboard->email; ?></td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td><?php echo $dushboard->phone; ?></td>
+      </tr>
+      <tr>
+        <td>Country</td>
+        <td><?php echo $dushboard->country ?></td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td><?php echo $dushboard->city ?></td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td><?php echo $dushboard->year."/".$dushboard->month."/".$dushboard->day; ?></td>
+      </tr>
+    </table>
+    <?php echo $this->Html->link('Edit',['action'=>'custoedit']) ?>
   </div>
 </div>
-<?php  echo $this->Form->end(); ?>
