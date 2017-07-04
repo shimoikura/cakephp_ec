@@ -65,6 +65,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/dushboard',['controller'=>"Users","action"=>"dushboard"]);
     $routes->connect('/users',['controller'=>"Users","action"=>"index"]);
     $routes->connect('/product',['controller'=>'Products',"action"=>"admin"]);
+    $routes->connect('/alldelete',['controller'=>'Carts',"action"=>"alldelete"]);
 
 
 

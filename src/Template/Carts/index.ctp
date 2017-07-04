@@ -1,7 +1,10 @@
+<?php echo $this->Form->create($carts,['url' => ['controller'=>'Carts','action' => 'update']]); ?>
+<?php foreach ($carts as $value) { ?>
+  <?php $length = count($carts); //foreachの回転回数?>
 <div class="container-fluid">
   <div class="row cart-title-box">
     <h1 style="float:left;">Shopping Cart</h1>
-    <p style="float:left; margin:10px 20px;">(2 Items)</p>
+    <p style="float:left; margin:10px 20px;">(<?php echo $length ?> Items)</p>
   </div>
 
   <?php echo "<table class='cart-table'>"; ?>
@@ -11,8 +14,6 @@
       <th>Quantity</th>
       <th>Subtotal</th>
     </tr>
-  <?php echo $this->Form->create($carts,['url' => ['controller'=>'Carts','action' => 'update']]); ?>
-    <?php foreach ($carts as $value) { ?>
       <tr id="<?php echo $value->Id ?>-tr" class="dd">
         <td rowspan="2"><?php echo $this->Html->image($value->itemImg,['class'=>'cart-img']) ?></td>
         <td><?php echo $value->itemName ?></td>
@@ -39,15 +40,16 @@
         echo $this->Form->input('totalPrice[]',['type'=>'hidden','value'=>$value->totalPrice,'id'=>$value->Id.'totalprice']);
        ?>
     <?php } ?>
-    <?php echo $this->Form->submit('update',['type'=>'submit','name'=>'cartupdate']); ?>
-  <?php echo $this->Form->end(); ?>
-    <?php $length = count($carts); //foreachの回転回数?>
     <p id="count" style="display:none;"><?php echo $length; ?></p>
 
   </table>
   <div class="check" style="float:right;">
+    <?php echo $this->Form->submit('update',['type'=>'submit','name'=>'cartupdate','class'=>'btn','style'=>'margin:10px;']); ?>
+  <?php echo $this->Form->end(); ?>
+    <button type="button" class='btn btn-danger'><a href="<?php echo $this->Url->build('/alldelete', true) ?>" style="text-decoration:none; color:#fff; margin:10px;">Clear Shopping Cart</a></button>
+    <hr>
     <p>TOTAL : Rs. <span id="total-price"></span></p><br>
-    <button type="button" class='btn btn-primary'><a href="<?php echo $this->Url->build('/buy', true) ?>" style="text-decoration:none; color:#fff;">PROCED TO CHECKOUT</a></button>
+    <button type="button" class='btn btn-success'><a href="<?php echo $this->Url->build('/buy', true) ?>" style="text-decoration:none; color:#fff;">PROCED TO CHECKOUT</a></button>
   </div>
 
 </div>

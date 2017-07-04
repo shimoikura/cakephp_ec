@@ -8,7 +8,7 @@ class CartsController extends AppController
   public function beforeFilter(Event $event)
   {
     parent::beforeFilter($event);
-    $this->Auth->allow(['index','delete','update']);
+    $this->Auth->allow(['index','delete','update','alldelete']);
   }
 
   public function index(){
@@ -43,6 +43,13 @@ class CartsController extends AppController
         ->where(['Id' => $idnumber])
         ->execute();
     }
+  }
+
+  public function alldelete(){
+    $this->autoRender = false; //.ctp file が必要ないとき
+    $this->Carts->deleteAll(['Id >' => 0]);
+    $this->redirect("/");
+    $this->Flash->error("Your shopping cart is empty");
   }
 }
 
