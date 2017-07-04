@@ -22,18 +22,51 @@ class ShipsTable extends Table{
           ->requirePresence("userId","create")
           ->notEmpty("userId");
     $validator
-          ->requirePresence("name","create")
-          ->notEmpty("name");
+          ->requirePresence("first_name","create")
+          ->notEmpty("first_name");
+    $validator
+          ->requirePresence("last_name","create")
+          ->notEmpty("last_name");
     $validator
           ->requirePresence("phone","create")
           ->notEmpty("phone")
           ->lengthBetween("phone",[10,10],"please enter only 10 digit");
     $validator
-          ->requirePresence("address","create")
-          ->notEmpty("address");
+          ->requirePresence("billing_address","create")
+          ->notEmpty("billing_address");
     $validator
-          ->requirePresence("email","create")
-          ->notEmpty("email");
+          ->requirePresence("billing_address2","create")
+          ->notEmpty("billing_address2");
+    $validator
+          ->requirePresence("billing_city","create")
+          ->notEmpty("billing_city");
+    $validator
+          ->requirePresence("billing_state","create")
+          ->notEmpty("billing_state");
+    $validator
+          ->requirePresence("billing_zip","create")
+          ->notEmpty("billing_zip");
+    $validator
+          ->requirePresence("billing_country","create")
+          ->notEmpty("billing_country");
+    $validator
+          ->requirePresence("shipping_address","create")
+          ->notEmpty("shipping_address");
+    $validator
+          ->requirePresence("shipping_address2","create")
+          ->notEmpty("shipping_address2");
+    $validator
+          ->requirePresence("shipping_city","create")
+          ->notEmpty("shipping_city");
+    $validator
+          ->requirePresence("shipping_state","create")
+          ->notEmpty("shipping_state");
+    $validator
+          ->requirePresence("shipping_zip","create")
+          ->notEmpty("shipping_zip");
+    $validator
+          ->requirePresence("shipping_country","create")
+          ->notEmpty("shipping_country");
     $validator
           ->requirePresence("delivery","create")
           ->notEmpty("delivery");
