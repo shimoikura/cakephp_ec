@@ -32,5 +32,7 @@
       </tr>
     </table>
     <?php echo $this->Html->link('Edit',['action'=>'custoedit']) ?>
+    <?php echo $this->Html->link('Personal Information',['action'=>'personal']) ?>
+
   </div>
 </div>

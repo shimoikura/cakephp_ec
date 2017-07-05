@@ -71,7 +71,7 @@
         <label style="font-size: .5em">
           <input type="checkbox" id="ship-check" value="">
           <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                Small
+                Copy Billing Address to Shipping
         </label>
       </div>
     </div>
@@ -109,13 +109,7 @@
       </div>
       <div class="dis_table">
         <?php
-        if ($this->request->session()->read('userid') === null) {
-          echo "<button class='btn green'><a style='text-decoration:none; color:#333;' href=" .$this->Url->build('/login', true). ">
-          Next</a></button>";
-        }
-        else {
           echo $this->Form->submit("Submit",['class'=>'btn green','id'=>"btn-step1",'type'=>'submit']);
-        }
         ?>
       </div>
       <?php echo $this->Form->end(); ?>

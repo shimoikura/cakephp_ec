@@ -32,6 +32,9 @@ class ShipsTable extends Table{
           ->notEmpty("phone")
           ->lengthBetween("phone",[10,10],"please enter only 10 digit");
     $validator
+          ->requirePresence("email","create")
+          ->notEmpty("email");
+    $validator
           ->requirePresence("billing_address","create")
           ->notEmpty("billing_address");
     $validator
@@ -67,15 +70,15 @@ class ShipsTable extends Table{
     $validator
           ->requirePresence("shipping_country","create")
           ->notEmpty("shipping_country");
-    $validator
-          ->requirePresence("delivery","create")
-          ->notEmpty("delivery");
-    $validator
-          ->requirePresence("payment","create")
-          ->notEmpty("payment");
-    $validator
-          ->requirePresence("gift","create")
-          ->notEmpty("gift");
+    // $validator
+    //       ->requirePresence("delivery","create")
+    //       ->notEmpty("delivery");
+    // $validator
+    //       ->requirePresence("payment","create")
+    //       ->notEmpty("payment");
+    // $validator
+    //       ->requirePresence("gift","create")
+    //       ->notEmpty("gift");
     return $validator;
   }
 

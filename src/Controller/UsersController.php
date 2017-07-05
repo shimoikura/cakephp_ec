@@ -10,7 +10,7 @@
     public function beforeFilter(Event $event)
     {
       parent::beforeFilter($event);
-      $this->Auth->allow(['register','index','login','logout','dushboard','view','edit','custoedit']);
+      $this->Auth->allow(['register','index','login','logout','dushboard','view','edit','custoedit','personal']);
     }
     public function index(){
       $users = $this->paginate($this->Users);
@@ -140,6 +140,24 @@
           }
         $this->set('customer',$user);
       }
+    }
+
+    public function personal(){
+      $this->request->session();
+      $this->loadModel("Ships");
+      $valid= $this->Ships->newEntity();
+      if($this->request->is('post'))
+      {
+        $valid = $this->Ships->patchEntity($valid,$this->request->getData());
+      }
+      if ($this->request->session()->read('userid') === null) {
+        return $this->redirect(array("action"=>"login"));
+      }
+      $userid = $this->request->session()->read('userid');
+      $user = $this->Ships->find()->where(["userId" => $userid]);
+      $user = $user->toArray();
+      $this->set('address',$user);
+      $this->set(compact('valid'));
     }
   }
 
