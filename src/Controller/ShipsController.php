@@ -19,19 +19,4 @@ class ShipsController extends AppController{
     }
 
   }
-
-  public function review($id = null){
-    $ship = $this->Ships->newEntity();
-    if ($this->request->is('POST')) {
-      $ship = $this->Ships->patchEntity($ship,$this->request->getData());
-      if ($this->Ships->save($ship)) {
-        $this->Flash->success("success");
-      }
-      else {
-        $this->Flash->error("error");
-      }
-    }
-    $this->set('ship',$ship);
-  }
-}
  ?>
