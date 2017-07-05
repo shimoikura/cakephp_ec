@@ -1,10 +1,9 @@
 <?php echo $this->Form->create($carts,['url' => ['controller'=>'Carts','action' => 'update']]); ?>
-<?php foreach ($carts as $value) { ?>
-  <?php $length = count($carts); //foreachの回転回数?>
 <div class="container-fluid">
   <div class="row cart-title-box">
     <h1 style="float:left;">Shopping Cart</h1>
-    <p style="float:left; margin:10px 20px;">(<?php echo $length ?> Items)</p>
+    <?php $length = count($carts); //foreachの回転回数?>
+    <p style="float:left; margin:10px 20px;">(<span><?php echo $length ?></span> Items)</p>
   </div>
 
   <?php echo "<table class='cart-table'>"; ?>
@@ -14,6 +13,7 @@
       <th>Quantity</th>
       <th>Subtotal</th>
     </tr>
+    <?php foreach ($carts as $value) { ?>
       <tr id="<?php echo $value->Id ?>-tr" class="dd">
         <td rowspan="2"><?php echo $this->Html->image($value->itemImg,['class'=>'cart-img']) ?></td>
         <td><?php echo $value->itemName ?></td>
