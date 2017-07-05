@@ -19,4 +19,5 @@ class ShipsController extends AppController{
     }
 
   }
+}
  ?>
