@@ -14,17 +14,35 @@ class ShipsController extends AppController{
   public function index(){
     $this->request->session();
     $this->request->session()->read("userid");
+    $userid = $this->request->session()->read('userid');
+    $user = $this->Ships->find()->where(["userId" => $userid]);
+    $user = $user->toArray();
+    foreach ($user as $value) {
+      $id = $value['id'];
+    }
     if ($this->request->session()->read("userid") == null) {
       $this->redirect("/login");
     }
     $valid= $this->Ships->newEntity();
     if($this->request->is('post'))
     {
-      $valid = $this->Ships->patchEntity($valid,$this->request->getData());
+      if (empty($user)) {
+        $valid= $this->Ships->newEntity();
+        $valid = $this->Ships->patchEntity($valid,$this->request->getData());
+      }
+      else {
+        $valid = $this->Ships->get($id,["contain"=>[]]);
+        $valid = $this->Ships->patchEntity($valid,$this->request->getData());
+      }
+      if ($this->Ships->save($valid)) {
+        $this->Flash->success("Your Address is successfully created.");
+        $this->redirect($this->referer());
+      }
+      else {
+        $this->Flash->error("Your Address is not created.");
+      }
     }
-    $userid = $this->request->session()->read('userid');
-    $user = $this->Ships->find()->where(["userId" => $userid]);
-    $user = $user->toArray();
+
     $this->set('address',$user);
     $this->set(compact('valid'));
 

@@ -81,11 +81,6 @@ class ShipsTable extends Table{
     //       ->notEmpty("gift");
     return $validator;
   }
-
-  public function buildRules(RulesChecker $rules){
-    $rules->add($rules->isUnique(array("email")));
-    return $rules;
-  }
 }
 
  ?>

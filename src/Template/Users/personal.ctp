@@ -10,7 +10,14 @@
   <!-- Step1 -->
   <div class="buy col-md-4 col-sm-4">
   <div id="step1" class="buy-step">
-    <?php echo $this->Form->create($valid); ?>
+    <?php
+    if (isset($valid)) {
+      echo $this->Form->create($valid);
+    }
+    else {
+      echo $this->Form->create();
+    }
+    ?>
       <?php $this->request->session();?>
       <?php echo $this->Form->input("userId",['id'=>'buy-userid','type'=>"hidden",'required'=>false,'errors'=>true,'value'=>$this->request->session()->read('userid')]) ?>
     <div class="form-group">
@@ -89,7 +96,14 @@
   <!-- Step1 -->
   <div class="buy col-md-4 col-sm-4">
   <div id="step1" class="buy-step">
-    <?php echo $this->Form->create($valid); ?>
+    <?php
+    if (isset($valid)) {
+      echo $this->Form->create($valid);
+    }
+    else {
+      echo $this->Form->create();
+    }
+    ?>
       <?php $this->request->session();?>
       <?php echo $this->Form->input("userId",['id'=>'buy-userid','type'=>"hidden",'required'=>false,'errors'=>true,'value'=>$this->request->session()->read('userid')]) ?>
     <div class="form-group">
