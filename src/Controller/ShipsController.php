@@ -17,6 +17,16 @@ class ShipsController extends AppController{
     if ($this->request->session()->read("userid") == null) {
       $this->redirect("/login");
     }
+    $valid= $this->Ships->newEntity();
+    if($this->request->is('post'))
+    {
+      $valid = $this->Ships->patchEntity($valid,$this->request->getData());
+    }
+    $userid = $this->request->session()->read('userid');
+    $user = $this->Ships->find()->where(["userId" => $userid]);
+    $user = $user->toArray();
+    $this->set('address',$user);
+    $this->set(compact('valid'));
 
   }
 }
