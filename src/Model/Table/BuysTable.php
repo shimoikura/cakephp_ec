@@ -4,7 +4,7 @@ use Cake\ORM\Table;
 use Cake\ORM\Query;
 use Cake\Validation\Validator;
 
-class ClassName extends AnotherClass
+class BuysTable extends Table
 {
 
   public function initialize(array $config)
@@ -39,6 +39,7 @@ class ClassName extends AnotherClass
     $validator
           ->requirePresence('statement',"create")
           ->notEmpty('statement');
+    return $validator;      
   }
 }
 

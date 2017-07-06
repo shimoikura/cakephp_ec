@@ -55,6 +55,7 @@ class ClassName extends AnotherClass
     $validator
           ->requirePresence('status',"create")
           ->notEmpty('status');
+    return $validator;      
   }
 }
 
