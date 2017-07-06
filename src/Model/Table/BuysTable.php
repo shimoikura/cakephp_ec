@@ -25,9 +25,6 @@ class ClassName extends AnotherClass
           ->requirePresence('userId',"create")
           ->notEmpty('userId');
     $validator
-          ->requirePresence('orderId',"create")
-          ->notEmpty('orderId');
-    $validator
           ->requirePresence('name',"create")
           ->notEmpty('name');
     $validator
