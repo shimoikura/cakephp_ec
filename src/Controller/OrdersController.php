@@ -3,6 +3,7 @@ namespace App\Controller;
 use App\Controller\Appcontroller;
 use Cake\Event\Event;
 use Cake\View\Helper\HtmlHepler;
+use Cake\ORM\TableRegistry;
 
 class OrdersController extends Appcontroller{
 
@@ -13,7 +14,6 @@ class OrdersController extends Appcontroller{
 
   public function index(){
     $this->request->session();
-    $this->request->session()->read("userid");
     $userid = $this->request->session()->read('userid');
 
     if ($userid == null) {
@@ -32,12 +32,38 @@ class OrdersController extends Appcontroller{
     $this->set('ship',$userShip);
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
+// Insert to BuysTable     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    $this->loadModel("Buys");
+    $articles = TableRegistry::get('Buys');
+
+    if ($this->request->is('post')) {
+      $allCarts = array();
+      foreach ($userCarts as $cart) {
+        array_push($allCarts,array(
+          'userId' => $userid,
+          'name' => $cart['itemName'],
+          'price' => $cart['itemPrice'],
+          'quantity' => $cart['quantity'],
+          'total' => $cart['totalPrice'],
+          'statement' => 'yet'
+   ));
+  }
+  // Entities作成
+$entities = $articles->newEntities($allCarts);
+
+// Entitiesの分だけ保存処理
+foreach ($entities as $entity) {
+  // Save entity
+  $articles->save($entity);
+}
     // ^^^^^^^^^^^^^^^^^^^^^^^^
     // cart内をすべて空にする
     // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     // $this->loadModel("Carts");
     // $this->Carts->deleteAll(['Id >' => 0]);
   }
+}
 }
 
  ?>
