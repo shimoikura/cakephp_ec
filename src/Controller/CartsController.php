@@ -36,8 +36,6 @@ class CartsController extends AppController
   public function update()
   {
     $this->autoRender = false; //.ctp file が必要ないとき
-    echo '<pre>';
-    print_r($_POST);
     $id = $this->request->data['Id'];
     for ($i=0; $i <count($id) ; $i++) {
       $idnumber = $this->request->data['Id'][$i];
@@ -48,6 +46,9 @@ class CartsController extends AppController
         ->where(['Id' => $idnumber])
         ->execute();
     }
+    if ($this->request->data['tobuy']) {
+      $this->redirect('/buy');
+    }
   }
 
   public function alldelete(){
@@ -55,6 +56,16 @@ class CartsController extends AppController
     $this->Carts->deleteAll(['Id >' => 0]);
     $this->redirect("/");
     $this->Flash->error("Your shopping cart is empty");
+  }
+
+  public function makesession(){
+    $this->autoRender = false;
+    $total = $_POST['total'];
+    $num = $_POST['num'];
+    $this->request->session();
+    $this->request->session()->write('carttotal',$total);
+    $this->request->session()->write('cartnum',$num);
+    echo 'hello';
   }
 }
 

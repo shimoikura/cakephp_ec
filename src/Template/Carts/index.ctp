@@ -49,7 +49,7 @@
     <button type="button" class='btn btn-danger'><a href="<?php echo $this->Url->build('/alldelete', true) ?>" style="text-decoration:none; color:#fff; margin:10px;">Clear Shopping Cart</a></button>
     <hr>
     <p>TOTAL : Rs. <span id="total-price"></span></p><br>
-    <button type="button" class='btn btn-success'><a href="<?php echo $this->Url->build('/buy', true) ?>" style="text-decoration:none; color:#fff;">PROCED TO CHECKOUT</a></button>
+    <?php echo $this->Form->submit('PROCED TO CHECKOUT',['type'=>'submit','name'=>'tobuy','class'=>'btn btn-success','style'=>'margin:10px;']); ?>
   </div>
 
 </div>
