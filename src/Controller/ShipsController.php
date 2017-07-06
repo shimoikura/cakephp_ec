@@ -36,12 +36,7 @@ class ShipsController extends AppController{
       }
       if ($this->Ships->save($valid)) {
         $this->Flash->success("Your Address is successfully created.");
-        $this->redirect($this->referer());
-        // ^^^^^^^^^^^^^^^^^^^^^^^^
-        // cart内をすべて空にする
-        // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        $this->loadModel("Carts");
-        $this->Carts->deleteAll(['Id >' => 0]);
+        $this->redirect(['controller'=>'Orders','ation'=>'index']);
       }
       else {
         $this->Flash->error("Your Address is not created.");
