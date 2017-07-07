@@ -9,7 +9,7 @@ class OrdersController extends Appcontroller{
 
   public function beforeFilter(Event $event){
     parent::beforeFilter($event);
-    $this->Auth->allow(['index']);
+    $this->Auth->allow(['index','goodbye']);
   }
 
   public function index(){
@@ -63,6 +63,10 @@ class OrdersController extends Appcontroller{
     $this->redirect(['action'=>'goodbye']);
   }
 }
+
+  public function goodbye(){
+    
+  }
 }
 
  ?>
