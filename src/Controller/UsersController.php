@@ -10,7 +10,7 @@
     public function beforeFilter(Event $event)
     {
       parent::beforeFilter($event);
-      $this->Auth->allow(['register','index','login','logout','dushboard','view','edit','custoedit','personal']);
+      $this->Auth->allow(['register','index','login','logout','dushboard','view','edit','custoedit','personal','history']);
     }
     public function index(){
       $users = $this->paginate($this->Users);
@@ -175,6 +175,22 @@
       }
       $this->set('address',$user);
       $this->set(compact('valid'));
+    }
+
+    public function history(){
+      $this->request->session();
+      $userid = $this->request->session()->read('userid');
+      if ($this->request->session()->read('userid') === null) {
+        return $this->redirect(array("action"=>"login"));
+      }
+
+      $this->loadModel("Buys");
+      $order = $this->Buys->find()->where(["userId" => $userid]);
+      $order = $order->toArray();
+      // foreach ($order as $value) {
+      //   $id = $value['id'];
+      // }
+      $this->set('orders',$order);
     }
   }
 

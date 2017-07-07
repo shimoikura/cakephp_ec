@@ -31,8 +31,11 @@
         <td><?php echo $dushboard->year."/".$dushboard->month."/".$dushboard->day; ?></td>
       </tr>
     </table>
-    <?php echo $this->Html->link('Edit',['action'=>'custoedit']) ?>
-    <?php echo $this->Html->link('Personal Information',['action'=>'personal']) ?>
+    <ul>
+      <li><?php echo $this->Html->link('Edit',['action'=>'custoedit']) ?></li>
+      <li><?php echo $this->Html->link('Personal Information',['action'=>'personal']) ?></li>
+      <li><?php echo $this->Html->link('Order history',['action'=>'history']) ?></li>
+    </ul>
 
   </div>
 </div>
