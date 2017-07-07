@@ -20,7 +20,7 @@
           <td><?php echo $value['total']; ?></td>
           <td><?php echo $value['statement']; ?></td>
           <td><?php echo $value['orderDate']; ?></td>
-          <td><?php echo $value['receviedDate']; ?></td>
+          <td><?php echo $value['receivedDate']; ?></td>
         </tr>
         <?php } ?>
       </table>
