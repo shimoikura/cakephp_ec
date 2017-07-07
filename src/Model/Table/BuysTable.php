@@ -13,7 +13,7 @@ class BuysTable extends Table
     $this->setTable("buys");
     $this->setDisplayField("id");
     $this->setPrimaryKey("id");
-
+    
     $this->addBehavior("Timestamp"); //get curently time
   }
 
@@ -39,7 +39,7 @@ class BuysTable extends Table
     $validator
           ->requirePresence('statement',"create")
           ->notEmpty('statement');
-    return $validator;      
+    return $validator;
   }
 }
 
