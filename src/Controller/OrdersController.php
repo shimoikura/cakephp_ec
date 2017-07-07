@@ -49,19 +49,18 @@ class OrdersController extends Appcontroller{
           'statement' => 'yet'
    ));
   }
-  // Entities作成
-$entities = $articles->newEntities($allCarts);
-
-// Entitiesの分だけ保存処理
-foreach ($entities as $entity) {
-  // Save entity
-  $articles->save($entity);
-}
+    // Entities作成
+    $entities = $articles->newEntities($allCarts);
+    // Entitiesの分だけ保存処理
+      foreach ($entities as $entity) {
+        $articles->save($entity);
+      }
     // ^^^^^^^^^^^^^^^^^^^^^^^^
     // cart内をすべて空にする
     // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    // $this->loadModel("Carts");
-    // $this->Carts->deleteAll(['Id >' => 0]);
+    $this->loadModel("Carts");
+    $this->Carts->deleteAll(['Id >' => 0]);
+    $this->redirect(['action'=>'goodbye']);
   }
 }
 }
