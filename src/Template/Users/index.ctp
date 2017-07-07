@@ -5,6 +5,7 @@
       <tr>
         <th rowspan="2">Id</th>
         <th rowspan="2">Name</th>
+        <th rowspan="2">Role</th>
         <th rowspan="2">email</th>
         <th rowspan="2">phone</th>
         <th rowspan="2">city</th>
@@ -21,6 +22,7 @@
         <tr>
           <td><?php echo $value->id ?></td>
           <td><?php echo $value->name ?></td>
+          <td><?php echo $value->role ?></td>
           <td><?php echo $value->email ?></td>
           <td><?php echo $value->phone ?></td>
           <td><?php echo $value->city ?></td>
