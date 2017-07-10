@@ -3,8 +3,8 @@
   <?php echo $this->Form->create($edit); ?>
   <p style="margin:0;">role</p>
   <?php
-  $roles = ["admin","coustomer"];
-  echo $this->Form->select("role",$roles);
+  $roles = ["admin"=>'admin',"customer"=>'customer'];
+  echo $this->Form->select("role",$roles,['value'=>$roles]);
   ?>
   <p style="margin:0;">Name</p>
   <?php echo $this->Form->input('name',["label"=>false]) ?>
